@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="petInfo"> <!--pet_info.insert의 pet_info  -->
+	<insert id="insert" parameterType="petInfoVO" useGeneratedKeys="true" keyProperty="pet_id"> <!--pet_info.insert의 insert , return타입 int라 따로 쓰지않음 쓰면 에러-->
+		insert into pet_info(
+		user_id,
+		pet_name,
+		pet_birth,
+		pet_type,
+		pet_detail,
+		pet_sex,
+		pet_neutering,
+		pet_vaccin,
+		pet_photo
+		)
+		values (
+		#{user_id},
+		#{pet_name},
+		#{pet_birth},
+		#{pet_type},
+		#{pet_detail},
+		#{pet_sex},
+		#{pet_neutering},
+		#{pet_vaccin},
+		#{pet_photo}
+		)
+	</insert> <!-- pet_id값 auto_incerment 증가 -->
+	<update id="update" parameterType="petInfoVO">
+		update pet_info 
+		set pet_name = #{pet_name}, pet_birth = #{pet_birth} , pet_type= #{pet_type}, pet_detail = #{pet_detail}, pet_sex = #{pet_sex}, pet_neutering = #{pet_neutering} , pet_vaccin = #{pet_vaccin}, pet_photo = #{pet_photo} 
+		where pet_id = #{pet_id}
+	</update>
+	
+	<delete id="delete" parameterType="petInfoVO">
+		delete from pet_info where pet_id = #{pet_id}
+	</delete>
+	
+	
+	<select id="one" parameterType="int" resultType="petInfoVO">
+		select * from pet_info where pet_id = #{pet_id}
+	</select>
+	
+</mapper>
+
