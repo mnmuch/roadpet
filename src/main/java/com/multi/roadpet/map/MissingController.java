@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MissingController {
-	
+
 	@Autowired
-	MissingDAO MissingDAO;
+	MissingService missingService;
 	
 	@RequestMapping(value="map",produces = "application/json") //all 검색 
 	@ResponseBody
 	public List<MissingVO> all() {
-		return MissingDAO.all();
+		return missingService.all();
 	}
 
 }
