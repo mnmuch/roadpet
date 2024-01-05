@@ -9,7 +9,7 @@
 	<button style="background: red; color: white;" id="b1">ajax 실행</button>
     <div id="map" style="width: 80%; min-width: 600px; height: 800px; margin: 0 auto"></div>
 	<script type="text/javascript" src="../resources/js/jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1991e110a0fbe362aac08fce1f5fba8c"></script>
 
     <script>
         var mapContainer = document.getElementById('map');
