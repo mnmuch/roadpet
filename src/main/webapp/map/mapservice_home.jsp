@@ -41,17 +41,11 @@
 							</ul>
 							<!-- Category End -->
 							<button type="button" value="" class="ml-btn mylocation-btn"></button>
-							<button type="button" class="w-btn writing-btn" ></button>
+							<button type="button" class="w-btn writing-btn" onClick="javascript:popOpen();" ></button>
 							<!-- Modal Start -->
-							<div class="modal hide" id="myModal" style="z-index:3;">
-								<div class="modal-header">
-									<button class="close" data-dismiss="modal">x</button>
-									<h3>Modal header</h3>
-								</div>
-								<div class="modal-body">
-									<input type="text" class="body-contents" id="contents"/>
-									<textarea class="body-contents" id="text-contents"></textarea>
-								</div>
+							<div class="modal-bg" onClick="javascript:popClose();"></div>
+							<div class="modal-wrap">
+								modal sample
 							</div>
 							<!-- Modal End -->
 	                	</div>
@@ -126,6 +120,29 @@
 			     // 지도 중심좌표를 접속위치로 변경합니다
 			     map.setCenter(locPosition);      
 			 }
+			 // 모달 열기
+			 function popOpen() {
+			    var modalPop = $('.modal-wrap');
+			    var modalBg = $('.modal-bg'); 
+			
+			    $(modalPop).show();
+			    $(modalBg).show();
+			    //모달 오픈 시 하위 레이어 스크롤 방지구문
+				$('html').css({
+					overflow: 'hidden',
+					height:'auto'
+				});
+			}
+			// 모달 닫기
+			 function popClose() {
+			   var modalPop = $('.modal-wrap');
+			   var modalBg = $('.modal-bg');
+			
+			   $(modalPop).hide();
+			   $(modalBg).hide();
+			   // 스크롤 방지 구문 해제
+			   $('html').removeAttr('style');
+			}
     	</script>
 		<!-- Map Script End -->
 	</body>
