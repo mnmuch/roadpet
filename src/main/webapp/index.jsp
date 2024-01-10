@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로드펫 메인페이지</title>
+<title>Insert title here</title>
 <%@ include file="header.jsp"%>
 <%@ include file="sidebar.jsp"%>
 </head>
