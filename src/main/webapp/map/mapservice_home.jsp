@@ -24,7 +24,19 @@
 	                <div class="row vh-100 bg-light rounded align-items-start justify-content-center mx-0">
 	                	<div class="mapWrapper">
 	                		<div id="map" style="width:100%;height:100%;"></div>
-	                		<!-- Category Start -->
+	                		<!-- Custom Controller -->
+						    <!-- 지도타입 컨트롤 div 입니다 -->
+						    <div class="custom_typecontrol radius_border">
+						        <span id="btnRoadmap" class="selected_cusbtn" onclick="setMapType('roadmap')">지도</span>
+						        <span id="btnSkyview" class="cusbtn" onclick="setMapType('skyview')">스카이뷰</span>
+						    </div>
+						    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+						    <div class="custom_zoomcontrol radius_border"> 
+						        <span onclick="zoomIn()"><img src="../resources/img/ico_plus.png" alt="확대"></span>  
+						        <span onclick="zoomOut()"><img src="../resources/img/ico_minus.png" alt="축소"></span>
+						    </div>
+	                		
+	                		<!-- Category -->
 	                		<ul id="category">
 								<li id="missingMark" data-order="0"> 
 									<span class="category_bg missing-c"></span>
@@ -39,15 +51,14 @@
 									병원
 								</li>  
 							</ul>
-							<!-- Category End -->
+						    <!-- Buttons -->
 							<button type="button" class="ml-btn mylocation-btn" onClick="javascript:getMyLocation();"></button>
 							<button type="button" class="w-btn writing-btn" onClick="javascript:popOpen();" ></button>
-							<!-- Modal Start -->
+							<!-- Modal -->
 							<div class="modal-bg" onClick="javascript:popClose();"></div>
 							<div class="modal-wrap modal-xl">
 								modal sample
 							</div>
-							<!-- Modal End -->
 	                	</div>
 	                </div>
 	            </div>
@@ -64,7 +75,9 @@
     	<script>
     		let gpsLat;		// gps 위도
     		let gpsLon;		// gps 경도
-    		let gpsMarker;	// gps 마커
+    		let gpsMarker = new kakao.maps.Marker({
+    	        position: new kakao.maps.LatLng(33.450701, 126.570667)
+    	    });;	// gps 마커
 			var modalPop = $('.modal-wrap');	// modal content
 			var modalBg = $('.modal-bg');		// modal background
 			$(modalPop).hide(); $(modalBg).hide();
@@ -76,7 +89,7 @@
 		    // 지도를 표시할 div와 지도 옵션으로 지도 생성
 		    var map = new kakao.maps.Map(mapContainer, mapOption);
 		    
-		 	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤 생성
+/* 		 	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤 생성
 		    var mapTypeControl = new kakao.maps.MapTypeControl();
 
 		    // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
@@ -84,7 +97,7 @@
 
 		    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		    var zoomControl = new kakao.maps.ZoomControl();
-		    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT); */
 		    
 		    // 마커 이미지 설정
 		    var imageSrc = '../resources/img/gpsMark.gif', // 마커이미지 주소    
@@ -117,6 +130,7 @@
 			 // 지도에 마커를 표시하는 함수입니다
 			 function displayMyLocationMarker(locPosition) {
 			     // 마커를 생성합니다
+				 gpsMarker.setMap(null);
 			     gpsMarker = new kakao.maps.Marker({  
 			         map: map, 
 			         position: locPosition,
@@ -125,6 +139,31 @@
 				 gpsMarker.setMap(map);
 			     // 지도 중심좌표를 접속위치로 변경합니다
 			     map.setCenter(locPosition);      
+			 }
+			// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+			 function setMapType(maptype) {
+				//console.error("맵타입");
+			     var roadmapControl = document.getElementById('btnRoadmap');
+			     var skyviewControl = document.getElementById('btnSkyview'); 
+			     if (maptype === 'roadmap') {
+			         map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+			         roadmapControl.className = 'selected_btn';
+			         skyviewControl.className = 'btn';
+			     } else {
+			         map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+			         skyviewControl.className = 'selected_btn';
+			         roadmapControl.className = 'btn';
+			     }
+			 }
+
+			 // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+			 function zoomIn() {
+			     map.setLevel(map.getLevel() - 1);
+			 }
+
+			 // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+			 function zoomOut() {
+			     map.setLevel(map.getLevel() + 1);
 			 }
 			 // 모달 열기
 			 function popOpen() {
