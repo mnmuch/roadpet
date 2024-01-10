@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="petstory">
+	<!-- ORM, Mapper파일 -->
+	<insert id="create" parameterType="petStoryVO">
+		insert into pet_story values (null, null,
+		#{story_title},#{story_content},now(),#{story_photo})
+	</insert>
+	
+	<select id="list" resultType="petStoryVO">
+		select product_id, story_photo,
+		story_title, story_date from
+		pet_story
+	</select>
+
+<!--  
+	<select id="one" parameterType="productVO" resultType="productVO">
+		select product_id, product_create, product_img, product_title, product_content from product where product_id = #{product_id}
+	</select> -->
+</mapper>
