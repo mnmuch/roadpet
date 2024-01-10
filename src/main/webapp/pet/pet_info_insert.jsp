@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,9 +20,9 @@
 <body>
 	
    <div class="bg-light rounded h-100 p-4">
-        <h3 class="mb-4">펫정보 입력1</h3>
+        <h3 class="mb-4">펫정보 입력</h3>
 		
-		<form action="pet_info_insert" id="form"  enctype="multipart/form-data">
+		<form action="pet_info_insert" id="form" method="post"  enctype="multipart/form-data">
 			
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">1.유저 아이디</label> <input
@@ -109,7 +111,7 @@
 
 
 			<div class="input-form-box">
-				9.펫 사진:<input type="file" name="pet_photo" class="form-control">
+				9.펫 사진:<input type="file" name="file" class="form-control">
 			</div>
 			<br>
 			<div class="button-login-box">
