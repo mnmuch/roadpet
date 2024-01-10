@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="missing">
+	
+	<select id="all" resultType="MissingVO">
+	SELECT CAST(ST_X(missing_location) AS DECIMAL(16,14)) AS 'lat', CAST(ST_Y(missing_location) AS DECIMAL(17,14)) AS 'lon' FROM pet.missing;
+	</select>
+	
+</mapper>
+
