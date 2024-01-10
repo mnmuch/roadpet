@@ -52,7 +52,8 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle me-lg-2" src="../resources/img/default.jpg" alt="" style="width: 40px; height: 40px;">
+
+                        <img class="rounded-circle" src="../resources/img/default.jpg" alt="" style="width: 40px; height: 40px;">
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">비회원</h6>
@@ -63,7 +64,9 @@
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>마이펫정보</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>커뮤니티</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>펫 스토리</a>
+
                     <a href="/roadpet/map/mapservice_home.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>지도서비스</a>
+
                   
             
                 </div>

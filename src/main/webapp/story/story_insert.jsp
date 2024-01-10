@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Roadpet-header</title>
+<title>펫 스토리</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -18,7 +18,6 @@
 
 <link rel="stylesheet" type="text/css" media="all"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript"
@@ -70,35 +69,50 @@
 <!-- Template Stylesheet -->
 
 <link rel="stylesheet" href="/roadpet/resources/css/style.css">
+
+<style>
+	.find-btn{
+		text-align: center;
+	}
+</style>
+
 </head>
 
 <body>
+	<!-- Form Start -->
+	<div class="container-fluid pt-4 px-4">
+		<div class="row g-4">
+			<div class="col-sm-12 col-xl-6">
+				<div class="bg-light rounded h-100 p-4">
+					<h6 class="mb-4">스토리 작성하기</h6>
 
- 
-            <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="navbar-nav align-items-center ms-auto">
-                   
-                    
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="../resources/img/default.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">로그인 후 이용가능합니다.</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Navbar End -->
+					<form action="PetStory_insert2" method="post" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="story_title" class="form-label">제목</label> <input
+								type="text" class="form-control" name="story_title"
+								value="제목을 입력해주세요.">
+						</div>
+						
 
+						
+						<div class="mb-3">
+							<label for="story_content" class="form-label">내용</label>
+							<textarea class="form-control"
+								name="story_content" style="height: 200px;">test</textarea>
+						</div>
+
+						<div class="mb-3">
+							<label for="story_photo" class="form-label">사진</label>
+							파일 선택: <input type="file" name="file" ><br>
+						</div>
+
+						<button class="btn btn-primary w-100 m-2" type="submit">등록하기</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
+
+</html>

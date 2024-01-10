@@ -42,5 +42,10 @@
 		select * from pet_info where pet_id = #{pet_id}
 	</select>
 	
+	
+	<select id="list" resultType="petInfoVO">
+		select * from pet_info
+	</select>
+	
 </mapper>
 

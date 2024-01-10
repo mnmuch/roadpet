@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-삭제가 완료되었습니다. ${result} 개
-<a href="pet_home.jsp">메인으로</a>
+게시글이 삭제되었습니다.
+<a href="list?page=1">라운지로 돌아가기</a>
 </body>
 </html>
