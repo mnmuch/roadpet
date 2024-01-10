@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="petWalk"> <!--pet_info.insert의 pet_info  -->
+	<insert id="insert" parameterType="petWalkVO" useGeneratedKeys="true" keyProperty="walk_id"> <!--pet_info.insert의 insert , return타입 int라 따로 쓰지않음 쓰면 에러-->
+		insert into pet_walk(
+		pet_id,
+		pet_name,
+		walk_date,
+		walk_distance,
+		walk_start,
+		walk_end
+		)
+		values (
+		#{pet_id},
+		#{pet_name},
+		now(),
+		#{walk_distance},
+		#{walk_start},
+		#{walk_end}
+		)
+	</insert> <!-- walk_id값 auto_incerment 증가 -->
+
+	<select id="one" parameterType="int" resultType="petWalkVO">
+		select * from pet_walk where pet_id = #{pet_id}
+	</select>
+
+
+</mapper>
+

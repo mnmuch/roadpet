@@ -60,7 +60,6 @@
 
 
     // Worldwide Sales Chart
-    var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
@@ -158,7 +157,7 @@
 
 
     // Pie Chart
-    var ctx5 = $("#pie-chart").get(0).getContext("2d");
+ 
     var myChart5 = new Chart(ctx5, {
         type: "pie",
         data: {

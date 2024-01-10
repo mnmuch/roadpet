@@ -2,6 +2,7 @@ package com.multi.roadpet.pet;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,39 +19,85 @@ import org.springframework.web.multipart.MultipartFile;
 public class PetInfoController {
 
 	@Autowired
-	PetInfoDAO dao;
+	PetInfoService petinfoService;
 	
 	
 	
 	@RequestMapping("pet/pet_info_insert")
-	public void insert(PetInfoVO pet_infoVO,Model model) throws IllegalStateException, IOException {
-		dao.insert(pet_infoVO);
-		model.addAttribute("pet_infoVO",pet_infoVO);
+	public void insert(PetInfoVO petinfoVO,
+			HttpServletRequest request,
+			MultipartFile file,
+			Model model) throws IllegalStateException, IOException {
+		String savedName = file.getOriginalFilename();
+		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+		File target = new File(uploadPath + "/" +savedName);
+		file.transferTo(target);
+		model.addAttribute("savedName", savedName);
+		System.out.println("img넣기전>>" + petinfoVO);
+		petinfoVO.setPet_photo(savedName);
+		System.out.println("img넣은 후>>" + petinfoVO);
+		System.out.println(uploadPath);
+		System.out.println(savedName);
+		petinfoService.insert(petinfoVO);
+		model.addAttribute("petinfoVO",petinfoVO);
+	
 	}
 	
 	@RequestMapping("pet/pet_info_update")
-	public String update(PetInfoVO pet_infoVO) {
-		int result =dao.update(pet_infoVO);
+	public void update(Model model,
+			int pet_id) throws IllegalStateException, IOException {
+		/*
+		 * String savedName = file.getOriginalFilename(); String uploadPath =
+		 * request.getSession().getServletContext().getRealPath("/resources/upload");
+		 * File target = new File(uploadPath + "/" +savedName); file.transferTo(target);
+		 * model.addAttribute("savedName", savedName);
+		 * petinfoVO.setPet_photo(savedName);
+		 */
+		PetInfoVO dto = petinfoService.one(pet_id);
+		System.out.println(dto);
+		model.addAttribute("dto",dto);
+		
+		
+	}
+	
+	@RequestMapping("pet/pet_info_update2")
+	public String update2(PetInfoVO petinfoVO,
+			HttpServletRequest request,
+			MultipartFile file,
+			Model model) throws IllegalStateException, IOException {
+		
+		  String savedName = file.getOriginalFilename(); String uploadPath =
+		  request.getSession().getServletContext().getRealPath("/resources/upload");
+		  File target = new File(uploadPath + "/" +savedName); file.transferTo(target);
+		  model.addAttribute("savedName", savedName);
+		  petinfoVO.setPet_photo(savedName);
+		 
+		int result = petinfoService.update(petinfoVO);	
 		if(result==1) {
-			return "pet_info_update";
-
+			return "pet/pet_info_update2";
 		}
 		else {
-			return "redirect:pet_info_update.jsp";
+			return "pet/redirect:pet_info_update.jsp";
 		}
 	}
 	
-	@RequestMapping("pet/one")
+	@RequestMapping("pet/pet_info_one")
 	public void one(int pet_id, Model model) {
-		PetInfoVO dto = dao.one(pet_id);
+		PetInfoVO dto = petinfoService.one(pet_id);
 		model.addAttribute("dto",dto);
 	}
 	
 	@RequestMapping("pet/pet_info_delete")
-	public void delete2(PetInfoVO pet_infoVO , Model model) {
-	
-		int result = dao.delete(pet_infoVO);//int
+	public void delete(PetInfoVO petinfoVO , Model model) {
+		int result = petinfoService.delete(petinfoVO);//int
 		model.addAttribute("result", result);
+	}
+	
+	@RequestMapping("pet/pet_info_list")
+	public void list(Model model) throws Exception { //view
+		List<PetInfoVO> list = petinfoService.list();
+		System.out.println(list.size());
+		model.addAttribute("list", list);
 	}
 	
 }

@@ -18,6 +18,7 @@
 
 <link rel="stylesheet" type="text/css" media="all"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript"
@@ -72,146 +73,33 @@
 </head>
 
 <body>
-	<nav
-		class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-		<a href="index.jsp" class="navbar-brand d-flex d-lg-none me-4">
-			<h2 class="text-primary mb-0">
-				<i class="fa fa-hashtag"></i>
-			</h2>
-		</a> <a href="#" class="sidebar-toggler flex-shrink-0"> <i
-			class="fa fa-bars"></i>
-		</a>
-		<form class="d-none d-md-flex ms-4">
-			<input class="form-control border-0" type="search"
-				placeholder="Search">
-		</form>
-		<div class="navbar-nav align-items-center ms-auto">
-			<div class="nav-item dropdown">
-				<a href="#" class="nav-link dropdown-toggle"
-					data-bs-toggle="dropdown"> <i class="fa fa-envelope me-lg-2"></i>
-					<span class="d-none d-lg-inline-flex">Message</span>
-				</a>
-				<div
-					class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-					<a href="#" class="dropdown-item">
-						<div class="d-flex align-items-center">
-							<img class="rounded-circle" src="/roadpet/resources/img/user.jpg"
-								alt="" style="width: 40px; height: 40px;">
-							<div class="ms-2">
-								<h6 class="fw-normal mb-0">Jhon send you a message</h6>
-								<small>15 minutes ago</small>
-							</div>
-						</div>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item">
-						<div class="d-flex align-items-center">
-							<img class="rounded-circle" src="/roadpet/resources/img/user.jpg"
-								alt="" style="width: 40px; height: 40px;">
-							<div class="ms-2">
-								<h6 class="fw-normal mb-0">Jhon send you a message</h6>
-								<small>15 minutes ago</small>
-							</div>
-						</div>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item">
-						<div class="d-flex align-items-center">
-							<img class="rounded-circle" src="/roadpet/resources/img/user.jpg"
-								alt="" style="width: 40px; height: 40px;">
-							<div class="ms-2">
-								<h6 class="fw-normal mb-0">Jhon send you a message</h6>
-								<small>15 minutes ago</small>
-							</div>
-						</div>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item text-center">See all message</a>
-				</div>
-			</div>
-			<div class="nav-item dropdown">
-				<a href="#" class="nav-link dropdown-toggle"
-					data-bs-toggle="dropdown"> <i class="fa fa-bell me-lg-2"></i> <span
-					class="d-none d-lg-inline-flex">Notificatin</span>
-				</a>
-				<div
-					class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-					<a href="#" class="dropdown-item">
-						<h6 class="fw-normal mb-0">Profile updated</h6> <small>15
-							minutes ago</small>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item">
-						<h6 class="fw-normal mb-0">New user added</h6> <small>15
-							minutes ago</small>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item">
-						<h6 class="fw-normal mb-0">Password changed</h6> <small>15
-							minutes ago</small>
-					</a>
-					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item text-center">See all
-						notifications</a>
-				</div>
-			</div>
-			<div class="nav-item dropdown">
-				<a href="#" class="nav-link dropdown-toggle"
-					data-bs-toggle="dropdown"> <img class="rounded-circle me-lg-2"
-					src="/roadpet/resources/img/user.jpg" alt=""
-					style="width: 40px; height: 40px;"> <span
-					class="d-none d-lg-inline-flex">Hong</span>
-				</a>
-				<div
-					class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-					<a href="#" class="dropdown-item">My Profile</a> <a href="#"
-						class="dropdown-item">Settings</a> <a href="#"
-						class="dropdown-item">Log Out</a>
-				</div>
-			</div>
-		</div>
-	</nav>
+  
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-nav align-items-center ms-auto">
+                   
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="../resources/img/default.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">로그인 후 이용가능합니다.</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+	
 
-	<!-- nav -->
-	<!-- Sidebar Start -->
-	<div class="sidebar pe-4 pb-3">
-		<nav class="navbar bg-light navbar-light">
-			<a href="index.html" class="navbar-brand mx-4 mb-3">
-				<h3 class="text-primary">
-					<i class="fa fa-hashtag me-2"></i>RoadPet
-				</h3>
-			</a>
-			<div class="d-flex align-items-center ms-4 mb-4">
-				<div class="position-relative">
-					<img class="rounded-circle" src="../resources/img/user.jpg" alt=""
-						style="width: 40px; height: 40px;">
-					<div
-						class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-				</div>
-				<div class="ms-3">
-					<h6 class="mb-0">Hong</h6>
-					<span>Admin</span>
-				</div>
-			</div>
-			<div class="navbar-nav w-100">
-				<a href="index.html" class="nav-item nav-link"><i
-					class="fa fa-tachometer-alt me-2"></i>마이펫정보</a>
-				<div class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle"
-						data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>커뮤니티</a>
-					<div class="dropdown-menu bg-transparent border-0">
-						<a href="button.html" class="dropdown-item">전체</a>
-						<a href="typography.html" class="dropdown-item">라운지</a>
-						<a href="element.html" class="dropdown-item">정보공유</a>
-						<a href="element.html" class="dropdown-item">장터게시판</a>
-					</div>
-				</div>
-				<a href="widget.html" class="nav-item nav-link"><i
-					class="fa fa-th me-2"></i>지도서비스</a>
-
-
-			</div>
-		</nav>
-	</div>
 
 </body>

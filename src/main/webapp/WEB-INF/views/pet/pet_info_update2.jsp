@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-커밋 테스트
+ <a href ="pet_home.jsp">데이터 수정완료</a>
 </body>
 </html>

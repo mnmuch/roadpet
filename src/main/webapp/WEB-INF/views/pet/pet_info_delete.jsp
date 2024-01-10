@@ -8,7 +8,7 @@
 </head>
 <body>
 
-게시판 게시물 삭제 요청 결과 행 삭제수 :${result} 개
-<a href="index.jsp">메인으로</a>
+삭제가 완료되었습니다. ${result} 개
+<a href="pet_home.jsp">메인으로</a>
 </body>
 </html>
