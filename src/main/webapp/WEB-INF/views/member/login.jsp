@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body bgcolor="yellow">
-로그인처리 요청됨<br>
-${id}님이 로그인되었습니다. <br>
-<a href="member.jsp">첫 페이지로 이동</a>
-</body>
+<body bgcolor="gray">
+<script>
+ alert("로그인이 완료되었습니다.");
+ self.close();
+ location.href = "member.jsp";
+</script>
 </html>
